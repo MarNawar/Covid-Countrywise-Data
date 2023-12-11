@@ -18,14 +18,12 @@ export default function App() {
   },[]);
   
   return (
-    <main>
+    <>
       <Input setCountry={setCountry}/>
-      <Data country = {
-        data.filter((cntry)=>{
-          if(cntry.country === country) 
-            return true;
-        }
-      )}/>
-    </main>
+      
+      {data.map((cntry,i)=>{
+        return <Data key ={i} country = {cntry} currentCountry={country}/>
+      })}
+    </>
   )
 }
